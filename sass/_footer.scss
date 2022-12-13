@@ -1,19 +1,54 @@
 .footer {
+  position: relative;
+  margin: auto;
+  max-width: 1280px;
   background-color: $footerColor;
-  padding-top: 40px;
-  padding-bottom: 40px;
+
   @include tablet {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    background-color: $textBlackColor;
   }
 }
-
+.footer-grad {
+  @include tablet {
+    width: 1024px;
+    margin: 0 auto;
+    background-image: linear-gradient(
+      to right,
+      $footerColor 499px,
+      rgba(122, 122, 122, 0.4) 500px,
+      $footerColor 501px,
+      $footerColor 736px,
+      rgba(122, 122, 122, 0.4) 737px,
+      $footerColor 738px
+    );
+  }
+  @include desktop {
+    width: 1280px;
+    background-image: linear-gradient(
+      to right,
+      $footerColor 625px,
+      rgba(122, 122, 122, 0.4) 626px,
+      $footerColor 627px,
+      $footerColor 926px,
+      rgba(122, 122, 122, 0.4) 927px,
+      $footerColor 928px
+    );
+  }
+}
 .footer__container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  margin: 0 auto;
+  @include phone {
+    max-width: 414px;
+  }
+  @include tablet {
+    max-width: 1024px;
+  }
+  @include desktop {
+    max-width: 1280px;
+  }
 }
 .logo {
   display: inline-block;
@@ -25,15 +60,23 @@
   letter-spacing: 0.3em;
   color: $modalBackgroundColor;
   font-family: 'Film P3 Wide Light';
+
   @include tablet {
     font-size: 64px;
     line-height: 1.08;
   }
 }
-@include tablet {
-  .footer-menu {
+
+.footer-menu {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  @include tablet {
     display: flex;
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
+}
+@include tablet {
   .footer-nav {
     margin-right: 136px;
   }
@@ -74,8 +117,9 @@
   }
 }
 .footer-socials__link {
-  fill: $modalBackgroundColor;
+  fill: rgba(243, 198, 83, 0.7);
   @include tablet {
+    fill: $modalBackgroundColor;
     display: flex;
     align-items: center;
     justify-content: space-between;
